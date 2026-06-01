@@ -59,3 +59,4 @@ Security Notification
 Transaction Notification
 
 Each category may have different delivery rules.
+
