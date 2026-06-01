@@ -1,0 +1,61 @@
+UML LINK:
+https://lucid.app/lucidchart/57142c96-621e-447d-8ce4-ee73ac1ebd7f/edit?viewport_loc=-1447%2C121%2C2892%2C1293%2C0_0&invitationId=inv_d415cc71-9465-42b5-a234-52f181b519e6
+
+PROBLEM STATEENT:
+Design a Notification System
+Requirements
+
+You need to design a notification system for an application.
+
+The system should support:
+
+Sending notifications via:
+Email
+SMS
+Push Notification
+
+A user can choose multiple channels.
+
+Example:
+
+User A:
+Email + SMS
+
+User B:
+Push only
+
+The client should be able to send a notification like:
+
+notificationService.sendNotification(user, message);
+
+New notification channels may be added in the future:
+
+WhatsApp
+Slack
+Telegram
+
+The existing code should require minimal modification.
+
+Each channel has its own sending logic.
+Follow-up Requirements
+
+After you finish the initial design, consider these changes:
+
+Change #1
+
+Some notifications are:
+
+Normal
+High Priority
+
+High-priority notifications should be sent through all available channels, regardless of user preferences.
+
+Change #2
+
+Management wants to add:
+
+Promotional Notification
+Security Notification
+Transaction Notification
+
+Each category may have different delivery rules.
