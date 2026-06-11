@@ -1,0 +1,14 @@
+Design a cloud storage application.
+
+Requirements:
+
+Storage providers -> (PROVIDER MUST BE A ABSTRACT CLASS (OCP)):
+AWS S3
+Google Cloud Storage
+Azure Blob Storage
+
+Users can switch providers at runtime -> (strategy design indication).
+File upload/download behavior depends on the selected provider -> abstraction(OCP).
+Provider object creation should be centralized -> Factory design pattern.
+Application configuration should exist as a single instance -> singleton design .
+New storage providers should be addable without changing existing upload/download logic -> OCP.

@@ -1,0 +1,13 @@
+Design a cloud storage application.
+
+Requirements:
+
+Storage providers:
+AWS S3
+Google Cloud Storage
+Azure Blob Storage
+Users can switch providers at runtime.
+File upload/download behavior depends on the selected provider.
+Provider object creation should be centralized.
+Application configuration should exist as a single instance.
+New storage providers should be addable without changing existing upload/download logic.
