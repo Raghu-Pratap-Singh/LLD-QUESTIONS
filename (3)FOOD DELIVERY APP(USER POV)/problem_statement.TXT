@@ -1,0 +1,65 @@
+Food Delivery Application (User Lifecycle)
+Context & Scope
+You are required to design and implement the user-facing backend architecture for a Food Delivery Application.
+
+Integrated Components: Assume that a robust Payment Processing Service and a Notification Service are already built and integrated into the ecosystem. You do not need to design them from scratch; you only need to expose an interface to interact with them.
+
+Perspective: The design must be strictly restricted to the User Perspective. You do not need to model administrative panels, partner management, or driver tracking logistics.
+
+Core Functional Requirements
+Your system must cleanly support the following execution flow for a customer:
+
+User Authentication & Onboarding:
+
+Users must be able to create an account or log in.
+
+The platform must support multiple third-party sign-in providers dynamically (e.g., Google OAuth, GitHub Auth).
+
+Restaurant Discovery & Browsing:
+
+Users can browse a list of active restaurants.
+
+The system must handle paginated scrolling (loading more restaurants on demand as the user scrolls).
+
+Users can select a specific restaurant to view its details.
+
+Menu Interaction & Cart Management:
+
+Selecting a restaurant must display its current standalone menu containing item names and prices.
+
+Duplicate menu items should be prevented at the data layout level.
+
+Users must be able to add items to a persistent personal Cart or remove items from it. The cart should track which items belong to which restaurant branch.
+
+Order Placement:
+
+Users can place an order using two different fulfillment policies: Home Delivery (adds a flat packaging/delivery surcharge of Rs. 100) or Self-Pickup (zero additional charges).
+
+The order must generate a unique tracking ID.
+
+Different restaurant franchises use different backend storage systems to fulfill transactions (e.g., some chain locations log orders to an SQL Ledger, while others update a MongoDB document). The system should decouple this seamlessly.
+
+Payment Processing:
+
+Once an order is successfully verified by the restaurant's storage system, the system invokes the pre-integrated payment gateway using the user's preferred method (e.g., Cash on Delivery, UPI).
+
+Non-Functional & Technical Requirements
+Language: C++ (Standard template constructs allowed).
+
+Object-Oriented Design (OOD): Code must strictly adhere to SOLID principles.
+
+Design Patterns: Use appropriate design patterns to handle variation in authentication strategies, object creation tracking, and distinct fulfillment calculations.
+
+Encapsulation: Ensure strict accessibility boundaries. For instance, item entities and menus should only be constructible by trusted internal data-loading utilities, not directly by the end-user.
+
+Memory Management: Prevent pointer-tracking memory leaks and dangling references during runtime application transitions.
+
+Sample Input / Execution Flow
+Plaintext
+1. Initialize App with Google Authentication Strategy.
+2. Register/Login user "Raghu" living at "Mill view Road, Delhi".
+3. Trigger paginated loading to fetch nearby restaurant branches.
+4. Select "Pizza Palace" (Index 0) and display its menu.
+5. Add "Margherita Pizza" from "Pizza Palace" to the user's cart.
+6. Checkout as a "Home Delivery" type order.
+7. Process the total calculation (Base Price + Surcharge) through the pre-integrated Payment Handl
