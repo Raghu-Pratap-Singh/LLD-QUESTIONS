@@ -1,0 +1,17 @@
+functional requirements {
+    (1) user can play, pause songs
+    (2) user can create , delete, add, songs, remove songs from playlists
+    (3) play songs according to different algorithms (
+        sequential, random, reverse, custom
+        (NOTE: algorithms are implemented on low level)
+    )
+    (4)app should support multiple output devices (
+        bluetooth, wired, etc;
+        (NOTE : these all are third party apis which we want to use, use adapter pattern)
+    )
+
+}
+
+non-function {
+    (1) scalable, easy to change etc.
+}
