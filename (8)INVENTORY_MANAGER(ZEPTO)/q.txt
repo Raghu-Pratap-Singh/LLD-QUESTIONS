@@ -1,0 +1,15 @@
+requirements:
+
+(1) we should be able to manaage inventory
+(add/remove items)
+(NOTE: inventory are item specific)
+
+(2) we should have Replenish strategies for inventories
+(threshhold, monthly,) should be scalable
+
+(3) we can have multiple inventory store(like db inventory store,, etc)
+and can be extended
+
+(4) user should be ablt to see items from all darkstores within 5km of user
+
+(5) if one darkstore cannot fulfil order, then orer can be slit to multiple delivery partners to different darkstores
