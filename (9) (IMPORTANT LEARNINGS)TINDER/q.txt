@@ -1,0 +1,15 @@
+requirements:
+(1) user can swipre left/right to a profile
+
+(2) user can setup his/her own profile
+
+(3) user can set his preferences
+
+(4) on a match, both should be assigned a chatroom
+
+(5) user can see all profiles using different nearby algorithms(scalable)
+
+(6) user should get notified on a match, or an unread message
+
+(9) user matching should return a score and matching should be done
+using scalable stratagies
