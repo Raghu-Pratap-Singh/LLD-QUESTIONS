@@ -1,0 +1,5 @@
+(1) we can have multiple users playing chess at the same time
+(2) score based match making algorithm(but should be scalable)
+(3) we have standard rules but also should be scalable
+(4) users within a match can also send/receive message
+(5) users can quit in between running match
