@@ -1,0 +1,22 @@
+Functional Requirements
+Document Composition & Operations
+
+A document consists of a tree-like hierarchy of heterogeneous content elements (such as text paragraphs, images, tables, and code blocks).
+
+The system must support running various independent operations across these elements—such as exporting/rendering the document into different formats (HTML, PDF, Plain Text), performing a syntax/spell check, and calculating total resource statistics (word count, image sizes, etc.)—without embedding this logic inside the element classes themselves.
+
+Editor Modes & Behavioral Changes
+
+The editor operates in distinct modes (e.g., Draft/Edit Mode, Review Mode, and Read-Only Mode).
+
+User interactions and core editing commands (like modifying text, inserting elements, or deleting content) must behave differently depending on the active mode of the editor. The transition between these modes should be handled dynamically.
+
+Undo and Redo Management
+
+The editor must support robust undo and redo functionality for tracking changes made to the document over time.
+
+The system needs to capture, store, and restore snapshots of the document's state at any given point without violating encapsulation or exposing the internal structure of the document elements.
+
+Extensibility
+
+The design must allow seamless addition of new content element types and new global document operations without requiring massive refactoring of existing code.
