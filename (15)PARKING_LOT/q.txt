@@ -1,0 +1,9 @@
+Multi-Level Facility: The parking lot contains multiple levels, and each level has a distinct number of parking rows and spots.
+
+Vehicle Types & Spot Sizing: Support multiple vehicle types (Motorcycles, Cars, Buses/Trucks) and corresponding spot sizes (Compact, Regular, Large). A motorcycle can park in any spot, a car can park in a Regular or Large spot, and a bus requires multiple consecutive Large spots in the same row.
+
+Pricing & Ticketing: The system must generate a unique ticket upon entry, record the entry timestamp, assign an optimal available spot based on vehicle type, and calculate parking fees upon exit using the combined base charge, hourly rates, and nightly charges model.
+
+Payment Processing: Support multiple payment methods (cash, credit card, UPI) for closing a ticket.
+
+Concurrency: The system must handle concurrent entry and exit requests safely without double-allocating spots.
