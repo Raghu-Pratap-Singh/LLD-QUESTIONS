@@ -1,0 +1,20 @@
+Problem Statement: In-Memory Meeting Scheduler & Calendar System
+
+Functional Requirements:
+
+1. Event Management:
+   - Create, edit, and cancel events with attributes: Title, Description, Start Time, End Time, Organizer, Location/Room, and List of Participants.
+   - Support recurring events based on recurrence rules (e.g., DAILY, WEEKLY on specified days) up to an end date or max occurrence count.
+
+2. Invite & Status Tracking:
+   - Send event invitations to participants upon creation/update.
+   - Participants can respond to invites with status: ACCEPTED, DECLINED, or TENTATIVE.
+
+3. Conflict Resolution & Free/Busy Lookup:
+   - Detect overlapping event conflicts for any participant when scheduling a new event.
+   - Provide a method to query a user's schedule/busy slots for a given date range.
+   - Slot Finder: Find the earliest available N-minute time window where all required participants are simultaneously free within a given time boundary (e.g., 9:00 AM to 5:00 PM).
+
+4. Resource Allocation (Meeting Rooms):
+   - Manage meeting rooms with maximum capacity constraints and available amenities (e.g., WHITEBOARD, PROJECTOR, VC_SETUP).
+   - Automatically suggest or assign a suitable, available meeting room for an event based on participant count and required amenities without double-booking rooms.

@@ -1,0 +1,57 @@
+Problem : Design an In-Memory Key-Value Store (eg.redix)
+
+1. Overview
+
+The system should act as a high-performance, in-memory data store that allows client applications to store, retrieve, manage key-value pairs, and support data structures, time-based expiration (TTL), and transaction-like capabilities.
+
+2. Functional Requirements {
+    Core CRUD Operations {
+        PUT(key, value) : Insert or update a key-value pair
+
+        GET(key) : retrieve the value associated with
+        a key
+
+        DELETE(key) : Remove a key-value pair
+    }
+
+    Date Type Support {
+        Support simple data types : string and integer
+
+        Support Complex data structures {
+            lists/queues : Push(LPUSH/RPUSH),pop(LPOP/RPOP) and fetch range
+
+            Hash Maps/Dictionaries : Store nested field-value pairs under a single key(HSET/HGET)
+        }
+    }
+
+    Time-To-Live(TTL) & Expiration {
+        Support setting an optional expiry time on a key using EXPIRE(key, ttl_seconds).
+
+        Automatically invalidate and clean up expired keys (via passive deletion on access and/or active background cleanup).
+    }
+
+    Transactions & Batching {
+        Support batching operations atomically using MULTI, EXEC, and DISCARD (operations execute sequentially without intermediate state interference).
+    
+        Batching(pipelines) {
+            Batching is about efficiency and reducing overhead.
+
+            Normally, when a client wants to run three commands, it sends Command 1, waits for the server response, sends Command 2, waits for the response, and so on. Every request incurs a network round-trip delay.
+
+            How Batching Works: The client bundles multiple independent commands into a single network packet and sends them all at once. The server processes them sequentially and returns all the responses together.
+
+            The Key Characteristic: No atomicity or isolation. If you batch 5 commands, commands from other clients can still interleave between them on the server, and if command 3 fails, commands 4 and 5 will still execute. It is purely an optimization to save time on network round trips.
+        }
+    }
+
+    Eviction Policies {
+        When the system hits its configured memory limit, it should evict keys based on a configurable policy:
+
+            LRU (Least Recently Used)
+
+            FIFO (First-In, First-Out)
+
+            No Eviction (raise an out-of-memory error on write)
+    }
+
+}
