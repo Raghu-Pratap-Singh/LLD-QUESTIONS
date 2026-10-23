@@ -19,3 +19,32 @@
     SOLUTION: 
     the problem is happening because the consumer thread is continously on lookout for messages in message queue, if somehow consumer goes on sleep and when the producer inserts a message in message queue, consumer can be notified, then it can be solved, this can be done using a shared variable(condition variable)
 */
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+mutex mtx;
+condition_variable cv;
+
+queue<int> q;
+
+void push(int message) {
+    unique_lock<mutex> lock(mtx);
+    q.push(message);
+    lock.unlock();
+    cv.notify_one();
+
+}
+
+void consume() {
+    while (1) {
+        unique_lock<mutex> lock(mtx);
+        cv.wait(lock, [] {return !q.empty();});
+        q.pop();
+    }
+}
+
+int main() {
+    return 0;
+}
