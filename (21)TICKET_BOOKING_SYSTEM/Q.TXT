@@ -1,0 +1,51 @@
+Requirements {
+    (1) HIERARCHIAL CATALOG AND SEATING MATRIX
+    {
+    system models a geographic chain of cinemas, each containing multiple auditoriums(screens)
+    
+    each auditorium features a grid of seats broken down into distinct pricing tiers(eg.silver, gold, platinum, recliner).each seat maintains a unique identifier and its physical row/column
+    }
+
+    (2) SHOW SCHEDULING AND DYNAMIC PRICING
+    {
+        theater managers can schedule movies for specific time slots on specific screens
+
+        ticket prices are computed dynamically based on multiple factors
+
+        {
+            base price by seat tier
+
+            time based modifiers{
+                weaked surcharges/morning matinee discounts
+            }
+
+            prime-time hour multipliers
+
+        }
+
+    }
+
+
+    (3)CONCURRENCY CONTROL AND TEMPORARY SEAT LOCKING
+
+    {
+        when popular movies open for booking, many users may attempt to reserve the exact same seats simultanously
+
+        when a user selects seats and proceeds to checkout, the system must atomically lock those specific seats for a strict time window(eg. 10 minutes)
+
+        if the payment is completed within the window, the seats transition to permanently booked. if the timer expires without payment, the locks are automatically released back to the available inventory pool to prevent deadlocks and ghost bookings
+    }
+
+
+    (4) BOOKING LIFECYCLE AND TRANSACTION MANAGEMENT
+
+    {
+        every booking request transition through a strict sequence of states:
+        INITIATED->SEATS_LOCKED->PAYMENT_PENDING->CONFIRMED/EXPRIED/CANCELLED
+
+        if the payment fails or times out, the booking engine must safely roll back seat states, issue refund notifications if necessary and log the audit trail for analytics
+    }
+
+
+}
+    
